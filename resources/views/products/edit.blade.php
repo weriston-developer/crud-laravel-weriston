@@ -34,9 +34,39 @@
                 <input type="text" class="form-control" id="brand" name="brand" value="{{ old('brand', isset($product) ? $product->brand : '') }}" required>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <button type="submit" class="btn btn-primary">{{ isset($product) ? 'Atualizar' : 'Salvar' }}</button>
+                <button type="submit" class="btn btn-primary btn-edit">{{ isset($product) ? 'Atualizar' : 'Salvar' }}</button>
                 <a href="{{ route('produtos.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configurar o SweetAlert para o botão de Editar
+            document.querySelectorAll('.btn-edit').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Editar Produto',
+                        text: "Deseja alterar os dados?",
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sim, editar!',
+                        cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirecionar para a página de edição
+                            window.location.href = this.getAttribute('href');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

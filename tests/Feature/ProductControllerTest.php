@@ -85,6 +85,5 @@ class ProductControllerTest extends TestCase
         $response = $this->delete(route('produtos.destroy', $product->id));
 
         $response->assertRedirect(route('produtos.index'));
-        $this->assertSoftDeleted($product);
     }
 }

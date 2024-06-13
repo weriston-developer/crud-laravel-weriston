@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid min-vh-100 " style="background-color: #adb5bd;">
+    <div class="container-fluid min-vh-100" style="background-color: #adb5bd;">
         <h2>Criar Novo Produto</h2>
-        <form action="{{ route('produtos.store') }}" method="POST">
+        <form id="create-product-form" action="{{ route('produtos.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">Nome:</label>
@@ -33,7 +33,32 @@
                 <button type="submit" class="btn btn-primary">Salvar</button>
                 <a href="{{ route('produtos.index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
-
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('create-product-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Criar Produto',
+                    text: "Deseja criar este produto?",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, criar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
