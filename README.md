@@ -1,8 +1,17 @@
+Claro! Aqui está o README atualizado para incluir os comandos de teste:
+
 ### README
 
 # Gerenciamento de Produtos
 
 Este projeto é um sistema de gerenciamento de produtos desenvolvido utilizando o framework Laravel. Ele permite a criação, edição, visualização e exclusão de produtos.
+
+
+
+
+## Arquivo .sql 
+
+Está Localizado na pasta database arquivo query.sql
 
 ## Funcionalidades
 
@@ -84,6 +93,14 @@ Este projeto é um sistema de gerenciamento de produtos desenvolvido utilizando 
 2. **Acesse o sistema**
 
    Abra o navegador e vá para `http://localhost:8000`.
+
+## Testes
+
+Para executar os testes, utilize o comando:
+
+```bash
+php artisan test
+```
 
 ## Estrutura do Projeto
 
