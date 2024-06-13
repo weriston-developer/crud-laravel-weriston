@@ -5,7 +5,7 @@
         style="background-color: #adb5bd; width: 100vw;">
 
         <div class="fixed-top-bar fixed-top"
-            style="width: 100%; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            style="width: 100%; background-color: #bbb2b2; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
