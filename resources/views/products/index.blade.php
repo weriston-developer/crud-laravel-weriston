@@ -51,17 +51,21 @@
                                     <td>{{ optional($product->created_at)->format('d/m/Y H:i:s') }}</td>
                                     <td>{{ optional($product->updated_at)->format('d/m/Y H:i:s') }}</td>
                                     <td>
-                                        <a href="{{ route('produtos.edit', $product->id) }}"
-                                            class="btn btn-primary btn-sm btn-edit">Editar</a>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <a href="{{ route('produtos.edit', $product->id) }}"
+                                                class="btn btn-primary btn-sm btn-edit">Editar</a>
+                                        
+                                            <form id="form-delete-{{ $product->id }}"
+                                                action="{{ route('produtos.destroy', $product->id) }}" method="POST"
+                                                class="d-inline m-0">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm delete-btn"
+                                                    data-id="{{ $product->id }}">Excluir</button>
+                                            </form>
+                                        </div>
+                                        
 
-                                        <form id="form-delete-{{ $product->id }}"
-                                            action="{{ route('produtos.destroy', $product->id) }}" method="POST"
-                                            class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm delete-btn"
-                                                data-id="{{ $product->id }}">Excluir</button>
-                                        </form>
                                     </td>
 
                                 </tr>
