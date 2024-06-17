@@ -21,7 +21,7 @@
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100"
         style="background-color: #adb5bd;">
         <h1 class="text-success">Listagem de Produtos</h1>
-        <p class="text-success">Desenvolvedor teste.</p>
+        <p class="text-success">Desenvolvedor PHP | Laravel </p>
         <div class="d-flex justify-content-center align-items-center">
             <a href="{{ route('produtos.index') }}" class="btn btn-link text-success">Lista de Produtos</a>
             <a href="{{ route('produtos.create') }}" class="btn btn-link text-success">Cadastrar Produto</a>
